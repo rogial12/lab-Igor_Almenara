@@ -1,4 +1,4 @@
-version: '3'
+
 
 services:
   # Nosso Load Balancer Nginx
@@ -7,7 +7,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-      - "80:80:8080"
+      - "8080:8080"
     depends_on:
       - backend1
       - backend2
