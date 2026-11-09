@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  # Nosso Load Balancer Nginx
+  loadbalancer:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80:8080"
+    depends_on:
+      - backend1
+      - backend2
+      - backend3
+
+  # Servidores Back-end
+  backend1:
+    image: traefik/whoami
+  backend2:
+    image: traefik/whoami
+  backend3:
+    image: traefik/whoami
